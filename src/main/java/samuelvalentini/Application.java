@@ -6,9 +6,6 @@ import jakarta.persistence.Persistence;
 import samuelvalentini.dao.PrestitoDAO;
 import samuelvalentini.dao.PubblicazioneDAO;
 import samuelvalentini.dao.UtenteDAO;
-import samuelvalentini.entity.prestito.Prestito;
-
-import java.util.List;
 
 public class Application {
     private static final EntityManagerFactory emf = Persistence.createEntityManagerFactory("catalogo_bibliografico");
@@ -140,12 +137,16 @@ public class Application {
 //        prestitoDAO.save(prestito2);
 //        prestitoDAO.save(prestito3);
 
+//
+//        //test getPrestitoByNumeroTessera
+//
+//        List<Prestito> prestitiUtente = prestitoDAO.getPrestitoByNumeroTessera(2341779821109434137L);
+//        System.out.println(prestitiUtente);
+//
 
-        //test getPrestitoByNumeroTessera
-
-        List<Prestito> prestitiUtente = prestitoDAO.getPrestitoByNumeroTessera(2341779821109434137L);
-        System.out.println(prestitiUtente);
-
+//        // test recupero prestiti scaduti
+//
+//        System.out.println(prestitoDAO.getPrestitiScaduti());
 
         entityManager.close();
         emf.close();

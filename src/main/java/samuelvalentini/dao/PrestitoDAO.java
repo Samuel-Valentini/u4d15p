@@ -54,6 +54,13 @@ public class PrestitoDAO {
 
     }
 
+    public List<Prestito> getPrestitiScaduti() {
+
+        return entityManager.createQuery("SELECT p FROM Prestito p WHERE p.dataDiRestituzioneEffettiva IS null AND p.dataDiRestituzionePrevista < CURRENT_DATE", Prestito.class).getResultList();
+
+
+    }
+
 
 //    public void removeNumeroTessera(long numeroTesseraPrestito) {
 //        Prestito prestito = this.getByNumeroTessera(numeroTesseraPrestito);
