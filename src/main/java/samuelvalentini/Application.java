@@ -144,9 +144,9 @@ public class Application {
 //        System.out.println(prestitiUtente);
 //
 
-        // test recupero prestiti scaduti
-
-        System.out.println(prestitoDAO.getPrestitiScaduti());
+//        // test recupero prestiti scaduti
+//
+//        System.out.println(prestitoDAO.getPrestitiScaduti());
 
 
 //        // altri esempi di estrazioni
@@ -161,7 +161,7 @@ public class Application {
 
         entityManager.close();
         emf.close();
-        System.out.println("programma chiuso");
+        System.out.println("programma terminato correttamente");
 
 
     }
