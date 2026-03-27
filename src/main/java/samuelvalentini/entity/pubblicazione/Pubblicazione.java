@@ -21,15 +21,16 @@ public abstract class Pubblicazione {
     @Column(name = "numero_pagine", nullable = false)
     private int numeroPagine;
 
-    public Pubblicazione(UUID idPubblicazione, String codiceISBN, String titolo, short annoPubblicazione, int numeroPagine) {
-        this.idPubblicazione = idPubblicazione;
-        this.codiceISBN = codiceISBN;
+    public Pubblicazione(String codiceISBN, String titolo, short annoPubblicazione, int numeroPagine) {
+        this.codiceISBN = validateISBN(codiceISBN);
+        if (titolo == null || titolo.isBlank()) throw new IllegalArgumentException("Il titolo non può essere vuoto");
         this.titolo = titolo;
         this.annoPubblicazione = annoPubblicazione;
+        if (numeroPagine <= 0) throw new IllegalArgumentException("La pubblicazione non può avere 0 pagine o meno");
         this.numeroPagine = numeroPagine;
     }
 
-    public Pubblicazione() {
+    protected Pubblicazione() {
     }
 
     public UUID getIdPubblicazione() {
@@ -43,7 +44,7 @@ public abstract class Pubblicazione {
     //lasciamo set per ISBN in caso di errori di inserimento
     public void setCodiceISBN(String codiceISBN) {
 
-        this.codiceISBN = codiceISBN;
+        this.codiceISBN = validateISBN(codiceISBN);
     }
 
     public String getTitolo() {
@@ -51,6 +52,7 @@ public abstract class Pubblicazione {
     }
 
     public void setTitolo(String titolo) {
+        if (titolo == null || titolo.isBlank()) throw new IllegalArgumentException("Il titolo non può essere vuoto");
         this.titolo = titolo;
     }
 
@@ -67,6 +69,7 @@ public abstract class Pubblicazione {
     }
 
     public void setNumeroPagine(int numeroPagine) {
+        if (numeroPagine <= 0) throw new IllegalArgumentException("La pubblicazione non può avere 0 pagine o meno");
         this.numeroPagine = numeroPagine;
     }
 
@@ -128,5 +131,14 @@ public abstract class Pubblicazione {
         }
         return codiceISBN;
 
+    }
+
+    @Override
+    public String toString() {
+        return "idPubblicazione=" + idPubblicazione +
+                ", codiceISBN='" + codiceISBN + '\'' +
+                ", titolo='" + titolo + '\'' +
+                ", annoPubblicazione=" + annoPubblicazione +
+                ", numeroPagine=" + numeroPagine;
     }
 }
