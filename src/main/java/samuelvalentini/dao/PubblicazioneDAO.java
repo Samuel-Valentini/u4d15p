@@ -66,7 +66,7 @@ public class PubblicazioneDAO {
         transaction.begin();
         entityManager.remove(pubblicazione);
         transaction.commit();
-        System.out.println("La pubblicazione " + pubblicazione.getTitolo() + " è stato eliminato con successo!");
+        System.out.println("La pubblicazione " + pubblicazione.getTitolo() + " è stata eliminata con successo!");
 
     }
 
