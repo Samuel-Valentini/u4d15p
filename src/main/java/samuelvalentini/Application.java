@@ -92,6 +92,18 @@ public class Application {
 //        List<Pubblicazione> pubblicazioni2020 = pubblicazioneDAO.getByYear((short) 2020);
 //        System.out.println(pubblicazioni2020);
 
+//        //test getByAuthor
+//
+//        List<Pubblicazione> pubblicazioniArturoSempronio = pubblicazioneDAO.getByAuthor("Arturo Sempronio");
+//        System.out.println(pubblicazioniArturoSempronio);
+
+        //test getByTitle
+
+        System.out.println(pubblicazioneDAO.getByTitle("ciao"));
+        System.out.println(pubblicazioneDAO.getByTitle("cidfvao"));
+        System.out.println(pubblicazioneDAO.getByTitle("ia"));
+        System.out.println(pubblicazioneDAO.getByTitle("IA"));
+
         entityManager.close();
         emf.close();
         System.out.println("tutto ok");

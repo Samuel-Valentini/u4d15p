@@ -71,13 +71,17 @@ public class PubblicazioneDAO {
     }
 
     public List<Pubblicazione> getByYear(short anno) {
-        try {
-            return entityManager.createQuery("SELECT p FROM Pubblicazione p WHERE p.annoPubblicazione = :anno", Pubblicazione.class).setParameter("anno", anno).getResultList();
 
-        } catch (NoResultException e) {
-            System.out.println(anno + "nessuna pubblicazione trovata");
-            return null;
-        }
-
+        return entityManager.createQuery("SELECT p FROM Pubblicazione p WHERE p.annoPubblicazione = :anno", Pubblicazione.class).setParameter("anno", anno).getResultList();
     }
+
+    public List<Pubblicazione> getByAuthor(String author) {
+        return entityManager.createQuery("SELECT p FROM Pubblicazione p WHERE p.nomeCognomeAutore = :author", Pubblicazione.class).setParameter("author", author).getResultList();
+    }
+
+    public List<Pubblicazione> getByTitle(String title) {
+
+        return entityManager.createQuery("SELECT p FROM Pubblicazione p WHERE LOWER(p.titolo) LIKE LOWER(:title)", Pubblicazione.class).setParameter("title", "%" + title + "%").getResultList();
+    }
+
 }
