@@ -31,7 +31,7 @@ public class Rivista extends Pubblicazione {
 
     @Override
     public String toString() {
-        return "Rivista{" + super.toString() + ", " +
+        return "°° Rivista{" + super.toString() + ", " +
                 "periodicita=" + periodicita +
                 "} ";
     }

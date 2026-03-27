@@ -144,13 +144,24 @@ public class Application {
 //        System.out.println(prestitiUtente);
 //
 
-//        // test recupero prestiti scaduti
+        // test recupero prestiti scaduti
+
+        System.out.println(prestitoDAO.getPrestitiScaduti());
+
+
+//        // altri esempi di estrazioni
 //
-//        System.out.println(prestitoDAO.getPrestitiScaduti());
+//        Libro libro1daServer = (Libro) pubblicazioneDAO.getByISBN("9788820068066");
+//        System.out.println(libro1daServer);
+//
+//        System.out.println(utenteDAO.getByNumeroTessera(6625786610817948305L));
+//
+//        System.out.println(pubblicazioneDAO.getByISBN("8820068060"));
+
 
         entityManager.close();
         emf.close();
-        System.out.println("tutto ok");
+        System.out.println("programma chiuso");
 
 
     }

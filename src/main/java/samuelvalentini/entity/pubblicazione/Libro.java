@@ -47,9 +47,9 @@ public class Libro extends Pubblicazione {
 
     @Override
     public String toString() {
-        return "Libro{" +
+        return "** Libro{" +
                 "nomeCognomeAutore='" + nomeCognomeAutore + '\'' +
                 ", generePrincipale='" + generePrincipale + '\'' + ", " +
-                super.toString() + "} ";
+                super.toString() + "} \n";
     }
 }

@@ -33,6 +33,12 @@ public class Utente {
         if (dataDiNascitaUtente.isBefore(LocalDate.now().minusYears(150)) || dataDiNascitaUtente.isAfter(LocalDate.now()))
             throw new IllegalArgumentException("Data di nascita errata");
         this.dataDiNascitaUtente = dataDiNascitaUtente;
+
+        //generiamo la tessera con un numero random in tutto il range dei long,
+        // questo di fatto rende quasi impossibile la duplicazione, in ogni
+        // caso il vincolo unique rifiuta un'eventuale duplicazione
+        // (una strategia simile a UUID4 che usa valori pseudocasuali)
+
         this.numeroTesseraUtente = Math.abs(random.nextLong());
     }
 
@@ -79,12 +85,12 @@ public class Utente {
 
     @Override
     public String toString() {
-        return "Utente{" +
+        return "§§ Utente{" +
                 "idUtente=" + idUtente +
                 ", nomeUtente='" + nomeUtente + '\'' +
                 ", cognomeUtente='" + cognomeUtente + '\'' +
                 ", dataDiNascitaUtente=" + dataDiNascitaUtente +
                 ", numeroTesseraUtente=" + numeroTesseraUtente +
-                '}';
+                "} \n";
     }
 }
