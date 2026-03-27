@@ -61,15 +61,5 @@ public class PrestitoDAO {
 
     }
 
-
-//    public void removeNumeroTessera(long numeroTesseraPrestito) {
-//        Prestito prestito = this.getByNumeroTessera(numeroTesseraPrestito);
-//        EntityTransaction transaction = this.entityManager.getTransaction();
-//        transaction.begin();
-//        entityManager.remove(prestito);
-//        transaction.commit();
-//        System.out.println("L'prestito " + prestito.getNomePrestito() + prestito.getCognomePrestito() + " è stato eliminato con successo!");
-//
-//    }
-
+    
 }
