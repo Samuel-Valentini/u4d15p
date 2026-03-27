@@ -42,6 +42,7 @@ public abstract class Pubblicazione {
 
     //lasciamo set per ISBN in caso di errori di inserimento
     public void setCodiceISBN(String codiceISBN) {
+
         this.codiceISBN = codiceISBN;
     }
 
@@ -67,5 +68,65 @@ public abstract class Pubblicazione {
 
     public void setNumeroPagine(int numeroPagine) {
         this.numeroPagine = numeroPagine;
+    }
+
+    private String validateISBN(String codiceISBN) {
+
+        if (codiceISBN == null) {
+            throw new IllegalArgumentException("ISBN non valido");
+        }
+
+        if (codiceISBN.length() != 10 && codiceISBN.length() != 13) {
+            throw new IllegalArgumentException("ISBN non valido");
+        }
+        if (codiceISBN.length() == 10) {
+            int total = 0;
+            int actual;
+
+            for (int i = 0; i < 10; i++) {
+
+                if (i == 9 && (codiceISBN.charAt(i) == 'X' || codiceISBN.charAt(i) == 'x')) {
+                    actual = 10;
+
+                } else if (Character.isDigit(codiceISBN.charAt(i))) {
+                    actual = codiceISBN.charAt(i) - '0';
+
+                } else throw new IllegalArgumentException("ISBN non valido");
+
+
+                total += (i + 1) * actual;
+
+            }
+
+            if (total % 11 != 0) {
+                throw new IllegalArgumentException("ISBN non valido");
+            }
+
+        } else {
+            for (int i = 0; i < 13; i++) {
+                if (!Character.isDigit(codiceISBN.charAt(i))) {
+                    throw new IllegalArgumentException("ISBN non valido");
+                }
+            }
+            int total = 0;
+            int actual;
+            for (int i = 0; i < 12; i++) {
+                if (i % 2 == 0) {
+                    actual = codiceISBN.charAt(i) - '0';
+                } else {
+                    actual = (codiceISBN.charAt(i) - '0') * 3;
+                }
+
+                total += actual;
+            }
+
+            int check = (10 - (total % 10)) % 10;
+
+            if (check != (codiceISBN.charAt(12) - '0')) throw new IllegalArgumentException("ISBN non valido");
+
+
+        }
+        return codiceISBN;
+
     }
 }
