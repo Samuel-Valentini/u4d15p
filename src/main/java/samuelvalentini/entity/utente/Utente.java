@@ -28,7 +28,7 @@ public class Utente {
         if (cognomeUtente == null || cognomeUtente.isBlank())
             throw new IllegalArgumentException("Il cognome utente non può essere vuoto");
         this.cognomeUtente = cognomeUtente;
-        if (dataDiNascitaUtente.isBefore(dataDiNascitaUtente.minusYears(150)) || dataDiNascitaUtente.isAfter(LocalDate.now()))
+        if (dataDiNascitaUtente.isBefore(LocalDate.now().minusYears(150)) || dataDiNascitaUtente.isAfter(LocalDate.now()))
             throw new IllegalArgumentException("Data di nascita errata");
         this.dataDiNascitaUtente = dataDiNascitaUtente;
     }
@@ -55,7 +55,7 @@ public class Utente {
     }
 
     public void setDataDiNascitaUtente(LocalDate dataDiNascitaUtente) {
-        if (dataDiNascitaUtente.isBefore(dataDiNascitaUtente.minusYears(150)) || dataDiNascitaUtente.isAfter(LocalDate.now()))
+        if (dataDiNascitaUtente.isBefore(LocalDate.now().minusYears(150)) || dataDiNascitaUtente.isAfter(LocalDate.now()))
             throw new IllegalArgumentException("Data di nascita errata");
         this.dataDiNascitaUtente = dataDiNascitaUtente;
     }
@@ -79,6 +79,7 @@ public class Utente {
         return "Utente{" +
                 "idUtente=" + idUtente +
                 ", nomeUtente='" + nomeUtente + '\'' +
+                ", cognomeUtente='" + cognomeUtente + '\'' +
                 ", dataDiNascitaUtente=" + dataDiNascitaUtente +
                 ", numeroTesseraUtente=" + numeroTesseraUtente +
                 '}';
