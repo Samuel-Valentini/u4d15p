@@ -53,7 +53,7 @@ public class PubblicazioneDAO {
             return entityManager.createQuery("SELECT p FROM Pubblicazione p WHERE p.codiceISBN = :isbn", Pubblicazione.class).setParameter("isbn", isbn).getSingleResult();
 
         } catch (NoResultException e) {
-            System.out.println(isbn + "non trovato");
+            System.out.println(isbn + " non trovato");
             return null;
         }
 
