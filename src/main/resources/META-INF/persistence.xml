@@ -6,6 +6,7 @@
         <!--        TODO: aggiungere elenco entities-->
         <class>samuelvalentini.entity.pubblicazione.Pubblicazione</class>
         <class>samuelvalentini.entity.pubblicazione.Libro</class>
+        <class>samuelvalentini.entity.pubblicazione.Rivista</class>
 
         <properties>
             <property name="jakarta.persistence.jdbc.url"
