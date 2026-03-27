@@ -3,11 +3,13 @@ package samuelvalentini.entity.utente;
 import jakarta.persistence.*;
 
 import java.time.LocalDate;
+import java.util.Random;
 import java.util.UUID;
 
 @Entity
 @Table(name = "utenti")
 public class Utente {
+    Random random = new Random();
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
     @Column(name = "id_utente")
@@ -18,8 +20,8 @@ public class Utente {
     private String cognomeUtente;
     @Column(name = "data_di_nascita_utente", nullable = false)
     private LocalDate dataDiNascitaUtente;
-    @Column(name = "numero_tessera_utente", nullable = false, unique = true, columnDefinition = "BIGSERIAL")
-    private long numeroTesseraUtente;
+    @Column(name = "numero_tessera_utente", nullable = false, unique = true)
+    private Long numeroTesseraUtente;
 
     public Utente(String nomeUtente, String cognomeUtente, LocalDate dataDiNascitaUtente) {
         if (nomeUtente == null || nomeUtente.isBlank())
@@ -31,6 +33,7 @@ public class Utente {
         if (dataDiNascitaUtente.isBefore(LocalDate.now().minusYears(150)) || dataDiNascitaUtente.isAfter(LocalDate.now()))
             throw new IllegalArgumentException("Data di nascita errata");
         this.dataDiNascitaUtente = dataDiNascitaUtente;
+        this.numeroTesseraUtente = Math.abs(random.nextLong());
     }
 
     protected Utente() {

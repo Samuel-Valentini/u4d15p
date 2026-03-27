@@ -4,6 +4,7 @@ import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityManagerFactory;
 import jakarta.persistence.Persistence;
 import samuelvalentini.dao.PubblicazioneDAO;
+import samuelvalentini.dao.UtenteDAO;
 
 public class Application {
     private static final EntityManagerFactory emf = Persistence.createEntityManagerFactory("catalogo_bibliografico");
@@ -97,12 +98,26 @@ public class Application {
 //        List<Pubblicazione> pubblicazioniArturoSempronio = pubblicazioneDAO.getByAuthor("Arturo Sempronio");
 //        System.out.println(pubblicazioniArturoSempronio);
 
-        //test getByTitle
+//        //test getByTitle
+//
+//        System.out.println(pubblicazioneDAO.getByTitle("ciao"));
+//        System.out.println(pubblicazioneDAO.getByTitle("cidfvao"));
+//        System.out.println(pubblicazioneDAO.getByTitle("ia"));
+//        System.out.println(pubblicazioneDAO.getByTitle("IA"));
 
-        System.out.println(pubblicazioneDAO.getByTitle("ciao"));
-        System.out.println(pubblicazioneDAO.getByTitle("cidfvao"));
-        System.out.println(pubblicazioneDAO.getByTitle("ia"));
-        System.out.println(pubblicazioneDAO.getByTitle("IA"));
+        UtenteDAO utenteDAO = new UtenteDAO(entityManager);
+
+        //test creazione utente
+
+//        try {
+//            Utente utente1 = new Utente("Gino", "Paoli", LocalDate.of(1934, 9, 23));
+//            utenteDAO.save(utente1);
+//        } catch (NotSavedException e) {
+//            System.out.println(e.getMessage());
+//        }
+//
+//        Utente utente2 = new Utente("Gino2", "Paoli2", LocalDate.of(1934, 9, 23));
+//        utenteDAO.save(utente2);
 
         entityManager.close();
         emf.close();
