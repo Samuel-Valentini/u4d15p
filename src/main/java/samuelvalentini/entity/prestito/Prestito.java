@@ -35,7 +35,9 @@ public class Prestito {
     private LocalDate dataDiRestituzioneEffettiva;
 
     public Prestito(Utente utente, Pubblicazione pubblicazione) {
+        if (utente == null) throw new IllegalArgumentException("L'utente non può essere null");
         this.utente = utente;
+        if (pubblicazione == null) throw new IllegalArgumentException("La pubblicazione non può essere null");
         this.pubblicazione = pubblicazione;
         this.dataDiInizioPrestito = LocalDate.now();
         this.dataDiRestituzionePrevista = LocalDate.now().plusDays(30);
