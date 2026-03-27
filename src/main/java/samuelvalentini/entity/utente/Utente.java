@@ -9,7 +9,7 @@ import java.util.UUID;
 @Entity
 @Table(name = "utenti")
 public class Utente {
-    Random random = new Random();
+
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
     @Column(name = "id_utente")
@@ -38,8 +38,10 @@ public class Utente {
         // questo di fatto rende quasi impossibile la duplicazione, in ogni
         // caso il vincolo unique rifiuta un'eventuale duplicazione
         // (una strategia simile a UUID4 che usa valori pseudocasuali)
+        Random random = new Random();
 
         this.numeroTesseraUtente = Math.abs(random.nextLong());
+        
     }
 
     protected Utente() {

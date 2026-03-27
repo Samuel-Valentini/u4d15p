@@ -108,8 +108,8 @@ public class Application {
 
         UtenteDAO utenteDAO = new UtenteDAO(entityManager);
 
-        //test creazione utente
-
+//        //test creazione utente
+//
 //        try {
 //            Utente utente1 = new Utente("Gino", "Paoli", LocalDate.of(1934, 9, 23));
 //            utenteDAO.save(utente1);
