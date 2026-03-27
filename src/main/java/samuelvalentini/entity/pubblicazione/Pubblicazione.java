@@ -40,7 +40,7 @@ public abstract class Pubblicazione {
         return codiceISBN;
     }
 
-    //lasciamo set in caso di errori di inserimento
+    //lasciamo set per ISBN in caso di errori di inserimento
     public void setCodiceISBN(String codiceISBN) {
         this.codiceISBN = codiceISBN;
     }
