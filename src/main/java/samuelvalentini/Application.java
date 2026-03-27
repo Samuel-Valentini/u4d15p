@@ -3,8 +3,12 @@ package samuelvalentini;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityManagerFactory;
 import jakarta.persistence.Persistence;
+import samuelvalentini.dao.PrestitoDAO;
 import samuelvalentini.dao.PubblicazioneDAO;
 import samuelvalentini.dao.UtenteDAO;
+import samuelvalentini.entity.prestito.Prestito;
+
+import java.util.List;
 
 public class Application {
     private static final EntityManagerFactory emf = Persistence.createEntityManagerFactory("catalogo_bibliografico");
@@ -118,6 +122,30 @@ public class Application {
 //
 //        Utente utente2 = new Utente("Gino2", "Paoli2", LocalDate.of(1934, 9, 23));
 //        utenteDAO.save(utente2);
+
+        PrestitoDAO prestitoDAO = new PrestitoDAO(entityManager);
+
+//        //Creazione prestiti di prova
+//
+//        Prestito prestito1 = new Prestito(utenteDAO.getByNumeroTessera(2341779821109434137L), pubblicazioneDAO.getByISBN("9788820068066"));
+//        System.out.println(prestito1);
+//
+//        Prestito prestito2 = new Prestito(utenteDAO.getByNumeroTessera(2341779821109434137L), pubblicazioneDAO.getByISBN("8820068060"));
+//        System.out.println(prestito2);
+//
+//        Prestito prestito3 = new Prestito(utenteDAO.getByNumeroTessera(6625786610817948305L), pubblicazioneDAO.getByISBN("9788820068066"));
+//        System.out.println(prestito3);
+//
+//        prestitoDAO.save(prestito1);
+//        prestitoDAO.save(prestito2);
+//        prestitoDAO.save(prestito3);
+
+
+        //test getPrestitoByNumeroTessera
+
+        List<Prestito> prestitiUtente = prestitoDAO.getPrestitoByNumeroTessera(2341779821109434137L);
+        System.out.println(prestitiUtente);
+
 
         entityManager.close();
         emf.close();

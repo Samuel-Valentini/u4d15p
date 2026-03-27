@@ -38,6 +38,7 @@ public class Prestito {
         this.utente = utente;
         this.pubblicazione = pubblicazione;
         this.dataDiInizioPrestito = LocalDate.now();
+        this.dataDiRestituzionePrevista = LocalDate.now().plusDays(30);
     }
 
     protected Prestito() {
@@ -64,6 +65,7 @@ public class Prestito {
     }
 
     public void setDataDiRestituzionePrevista(LocalDate dataDiRestituzionePrevista) {
+        //lo lascio in caso di prolungamento del prestito
         this.dataDiRestituzionePrevista = dataDiRestituzionePrevista;
     }
 
