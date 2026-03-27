@@ -60,6 +60,16 @@ public class Utente {
         this.dataDiNascitaUtente = dataDiNascitaUtente;
     }
 
+    public String getCognomeUtente() {
+        return cognomeUtente;
+    }
+
+    public void setCognomeUtente(String cognomeUtente) {
+        if (cognomeUtente == null || cognomeUtente.isBlank())
+            throw new IllegalArgumentException("Il cognome utente non può essere vuoto");
+        this.cognomeUtente = cognomeUtente;
+    }
+
     public long getNumeroTesseraUtente() {
         return numeroTesseraUtente;
     }

@@ -8,6 +8,7 @@
         <class>samuelvalentini.entity.pubblicazione.Libro</class>
         <class>samuelvalentini.entity.pubblicazione.Rivista</class>
         <class>samuelvalentini.entity.utente.Utente</class>
+        <class>samuelvalentini.entity.prestito.Prestito</class>
 
         <properties>
             <property name="jakarta.persistence.jdbc.url"
